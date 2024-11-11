@@ -51,7 +51,7 @@ def add_task(stored_tasks):
     print("\nAdd a Task Menu\n")
     
     try:
-        num_of_tasks = int(input("How many tasks would you like to add? "))
+        num_of_tasks = int(input("How many tasks would you like to add? Enter '0' to return to the main menu. "))
         while num_of_tasks > 0:
             name_of_task = input("Add your task: ")
             #check to see if user entered anything, can't enter an empty string
