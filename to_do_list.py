@@ -47,6 +47,7 @@ def add_task(stored_tasks):
         num_of_tasks = int(input("How many tasks would you like to add? "))
         while num_of_tasks > 0:
             name_of_task = input("Add your task: ")
+            stored_tasks.append(name_of_task)
             print(f"{name_of_task} has been added to your to do list!")
             num_of_tasks -= 1
             
@@ -58,7 +59,26 @@ def add_task(stored_tasks):
     start()
 
 def view_task(stored_tasks):
-    pass
+    if stored_tasks == []:
+        print(f"Looks like you don't have any tasks saved yet! Enter the 'Add Tasks' menu to add a new task. \n{main_menu_msg}")
+        start()
+    else:
+        try:
+            print("Here are your tasks:")
+            for task in stored_tasks:
+                print(task)
+                
+            back_to_main = input("\nEnter '0' to return to the main menu. ")
+            if back_to_main == '0':
+                print(main_menu_msg)
+                start()
+            else:
+                print(inv_msg)
+                view_task(stored_tasks)
+                
+        except (TypeError, ValueError) as e:
+            print(err_msg)
+            view_task(stored_tasks)
 
 def del_task(stored_tasks):
     pass
